@@ -1,5 +1,247 @@
+import 'Screens/home_screen.dart';
+import 'project_colors.dart';
+
 import 'package:flutter/material.dart';
 
+//-----------------------------------------------//
+//Drawer widget init
+/*
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+      ),
+    );
+  }
+}
+*/
+//-----------------------------------------------//
+
+
+
+
+
+
+
+//-----------------------------------------------//
+//adding a userProfile widget into the drawer
+/*
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(),
+          drawer: Drawer(
+            child: Column(
+              children: [
+                Container(
+                  height: 120,
+                  color: Colors.blue.shade600,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        child: Row(
+                          children: [
+                            const CircleAvatar(
+                              radius: 30,
+                              child: CircleAvatar(
+                                radius: 29,
+                                foregroundImage: AssetImage("assets/dash.png"),
+                                backgroundColor: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(width: 10,),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text("firstName LastName",
+                                    style: TextStyle(fontSize: 20, color: Colors.white)
+                                ),
+                                Text(
+                                  "name@domain.com",
+                                   style: TextStyle(fontSize: 15, color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+
+                const Divider(height: 2,color: Colors.black,),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+//-----------------------------------------------//
+
+
+
+
+//No, in order to be able to use the Navigator to navigate between pages
+//we will need to return a Home() widget from MyApp class
+//and continue coding in the Home widget
+//see you in the home_screen.dart
+//-----------------------------------------------//
+//
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
+  }
+}
+//-----------------------------------------------//
+
+
+
+
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+//-----------------------------------------------//
+//
+
+//-----------------------------------------------//
+
+/*
 void main() {
   runApp(const MyApp());
 }
@@ -79,20 +321,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
@@ -105,6 +334,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+
+     // drawer: Drawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
@@ -113,3 +344,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
