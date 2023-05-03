@@ -295,7 +295,7 @@ class _HomeScreenState extends State<HomeScreen> {
 //-----------------------------------------------//
 //Now, let's move the drawer to a separate file
 //for code cleanliness
-
+/*
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -320,7 +320,135 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/
+//-----------------------------------------------//
 
+
+
+
+
+
+
+//-----------------------------------------------////-----------------------------------------------//
+//-----------------------------------------//Bottom sheet//-----------------------------------------//
+//-----------------------------------------------////-----------------------------------------------//
+
+
+
+
+
+
+
+//-----------------------------------------------//
+//Bottom sheet widget
+/*
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: DrawerWidget(),
+
+          body: Center(
+            child: ElevatedButton(
+              child: const Text("Show bottom sheet"),
+              onPressed: () {
+                showModalBottomSheet(context: context,
+                  builder: (BuildContext context) =>
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text("dismiss"),
+                      )
+                ),
+                );
+              },
+            ),
+          ),
+
+        ),
+      ),
+    );
+  }
+}
+*/
+//-----------------------------------------------//
+
+
+
+
+
+
+
+
+//-----------------------------------------------//
+//Bottom sheet widget with rounded borders
+/*
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: DrawerWidget(),
+
+          body: Center(
+            child: ElevatedButton(
+              child: const Text("Show bottom sheet"),
+              onPressed: () {
+                showModalBottomSheet(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(20)),
+                  ),
+                  context: context,
+                  builder: (BuildContext context) =>
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text("dismiss"),
+                      )
+                ),
+                );
+              },
+            ),
+          ),
+
+        ),
+      ),
+    );
+  }
+}
+*/
 //-----------------------------------------------//
 
 
@@ -334,7 +462,150 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 
+//-----------------------------------------------//
+//Bottom sheet widget with limited height
+/*
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: DrawerWidget(),
+
+          body: Center(
+            child: ElevatedButton(
+              child: const Text("Show bottom sheet"),
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(20)),
+                  ),
+                  context: context,
+                  builder: (BuildContext context) =>
+                  SizedBox(
+                    height: 350,
+                      child:
+                          Center(
+                            child: Column(
+                              children: [
+                               Image.asset("assets/dash.png"),
+                                // Image.asset("assets/dash1.png"),
+                                // Image.asset("assets/dash2.png"),
+                                // Image.asset("assets/dash3.png"),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text("dismiss"),
+                                ),
+                                const SizedBox(height: 15,),
+                              ],
+                            )
+                         ),
+                    ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+//-----------------------------------------------//
+
+
+
+//-----------------------------------------------//
+//Bottom sheet widget with many children
+//RenderFlex error solution
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: DrawerWidget(),
+
+          body: Center(
+            child: ElevatedButton(
+              child: const Text("Show bottom sheet"),
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(20)),
+                  ),
+                  context: context,
+                  builder: (BuildContext context) =>
+                  SizedBox(
+                    height: 500,
+                child:
+                    Center(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+
+                           Image.asset("assets/dash.png"),
+                            Image.asset("assets/dash1.png"),
+                            Image.asset("assets/dash2.png"),
+                            Image.asset("assets/dash3.png"),
+
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text("dismiss"),
+                            ),
+
+                            const SizedBox(height: 20,),
+                          ],
+                        ),
+                      )
+                ),
+                  ),
+                );
+              },
+            ),
+          ),
+
+        ),
+      ),
+    );
+  }
+}
+
+//-----------------------------------------------//
 
 
 
