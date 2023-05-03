@@ -687,13 +687,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 
-
-
-
 //-----------------------------------------------//
 //Now let's move the alert dialog into a separate widget
 //Alert Dialog widget
-
+/*
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -753,7 +750,142 @@ class ShowDialogButton extends StatelessWidget {
     );
   }
 }
+*/
+//-----------------------------------------------//
 
+
+
+
+
+
+
+//-----------------------------------------------////-----------------------------------------------//
+//-----------------------------------------//Stack widget//-----------------------------------------//
+//-----------------------------------------------////-----------------------------------------------//
+
+
+
+
+
+
+
+//-----------------------------------------------//
+//Stack widget
+//by default, stack children are built on top of each other
+//aligned to the top left corner of their parent
+/*
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: const DrawerWidget(),
+
+          body:  Center(
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 90,
+                    height: 90,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    width: 80,
+                    height: 80,
+                    color: Colors.blue,
+                  ),
+                ],
+              )
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+//-----------------------------------------------//
+
+
+
+
+
+
+
+
+
+//-----------------------------------------------//
+//Stack widget
+//Positioned widget
+/*
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: const DrawerWidget(),
+
+          body:  Center(
+              child: Container(
+                height: 200,
+                width: 200,
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.red,
+                    ),
+                    Positioned(
+                      top: 50,
+                      left: 50,
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        color: Colors.green,
+                      ),
+                    ),
+
+                  ],
+                ),
+              )
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
 //-----------------------------------------------//
 
 
@@ -766,38 +898,114 @@ class ShowDialogButton extends StatelessWidget {
 
 
 
+
+//Now, let's play a little
 //-----------------------------------------------//
-//
-
-//-----------------------------------------------//
-
-
+//Stack widget
+//Positioned
+//Moving containers by changing it's position
 
 
+class Car{
+  double left;
+  double top;
+  Car({required this.left, required this.top});
+}
 
 
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Car car = Car(left: 100, top: 100);
+
+  void moveCarRight()
+  {
+    setState(() {
+      car.left+=10;
+    });
+  }
+
+  void moveCarLeft()
+  {
+    setState(() {
+      car.left-=10;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: const DrawerWidget(),
+
+          body:  Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  Container(
+                    height: 500,
+                    width: 500,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          top: car.top,
+                          left: car.left,
+                          child: SizedBox(
+                            height: 300,
+                              width: 300,
+                              child: Image.asset("assets/dash.png")
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+                    children: [
+                      ElevatedButton(
+                          onPressed: (){
+                            setState(() {
+                              moveCarLeft();
+                            });
+
+                            },
+                          child: Icon(Icons.arrow_back_ios_new)
+                      ),
 
 
+                  ElevatedButton(
+                      onPressed: (){
+                        setState(() {
+                         moveCarRight();
+                        });
 
-
-
-//-----------------------------------------------//
-//
-
-//-----------------------------------------------//
-
-
-
-
-
-
-
-
-
-
-
-//-----------------------------------------------//
-//
+                      },
+                      child: Icon(Icons.arrow_forward_ios_sharp)
+                  ),
+                    ],
+                  ),
+                ],
+              )
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 //-----------------------------------------------//
 
