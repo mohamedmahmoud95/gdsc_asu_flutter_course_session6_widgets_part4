@@ -535,7 +535,7 @@ class _HomeScreenState extends State<HomeScreen> {
 //-----------------------------------------------//
 //Bottom sheet widget with many children
 //RenderFlex error solution
-
+/*
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -604,16 +604,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-//-----------------------------------------------//
-
-
-
-
-
-//-----------------------------------------------//
-//
-
+*/
 //-----------------------------------------------//
 
 
@@ -624,10 +615,144 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 
+//-----------------------------------------------////-----------------------------------------------//
+//-----------------------------------------/Alert dialog//-----------------------------------------//
+//-----------------------------------------------////-----------------------------------------------//
+
+
+
+
 
 
 //-----------------------------------------------//
-//
+//Alert Dialog widget
+/*
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: DrawerWidget(),
+
+          body: Center(
+            child: ElevatedButton(
+              child: const Text("Show dialog"),
+              onPressed: (){
+                showDialog<String>(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('AlertDialog Title'),
+                    content: const Text('AlertDialog description'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                  );
+                 }
+            )
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+//-----------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------------------------//
+//Now let's move the alert dialog into a separate widget
+//Alert Dialog widget
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          drawer: DrawerWidget(),
+
+          body: const Center(
+            child:  ShowDialogButton(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+//-----------------------------------------------//
+class ShowDialogButton extends StatelessWidget {
+  const ShowDialogButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () => showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('AlertDialog Title'),
+          content: const Text('AlertDialog description'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      ),
+      child: const Text('Show Dialog'),
+    );
+  }
+}
 
 //-----------------------------------------------//
 
