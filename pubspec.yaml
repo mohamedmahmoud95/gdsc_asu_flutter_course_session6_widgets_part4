@@ -98,6 +98,6 @@ flutter:
     - assets/dashatars.png
     - assets/flappy_dash.gif
     - assets/verticalDivider.png
-    - blue_car.png
-    - red_car.png
+    - assets/blue_car.png
+    - assets/red_car.png
 

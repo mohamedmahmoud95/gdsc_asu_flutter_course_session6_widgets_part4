@@ -366,7 +366,9 @@ class _HomeScreenState extends State<HomeScreen> {
             child: ElevatedButton(
               child: const Text("Show bottom sheet"),
               onPressed: () {
-                showModalBottomSheet(context: context,
+                showModalBottomSheet(
+                  isDismissible: true,
+                  context: context,
                   builder: (BuildContext context) =>
                     Center(
                       child: ElevatedButton(
@@ -388,9 +390,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
 
 
 
@@ -529,6 +528,8 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
+
+
 
 
 
@@ -719,8 +720,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
 
 //-----------------------------------------------//
 class ShowDialogButton extends StatelessWidget {
@@ -937,6 +936,20 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void moveCarUp()
+  {
+    setState(() {
+      car.top-=10;
+    });
+  }
+
+  void moveCarDown()
+  {
+    setState(() {
+      car.top+=10;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp
@@ -963,9 +976,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           top: car.top,
                           left: car.left,
                           child: SizedBox(
-                            height: 300,
-                              width: 300,
-                              child: Image.asset("assets/dash.png")
+                            height: 200,
+                              width: 200,
+                              child: Image.asset("assets/blue_car.png")
                           ),
                         ),
 
@@ -987,6 +1000,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
 
 
+                  Column(
+                    children: [
+                      ElevatedButton(
+                          onPressed: (){
+                            setState(() {
+                              moveCarUp();
+                            });
+
+                          },
+                          child: Icon(Icons.keyboard_arrow_up)
+                      ),
+
+                      SizedBox(height: 20,),
+                      ElevatedButton(
+                          onPressed: (){
+                            setState(() {
+                              moveCarDown();
+                            });
+
+                          },
+                          child: Icon(Icons.keyboard_arrow_down)
+                      ),
+                    ],
+                  ),
                   ElevatedButton(
                       onPressed: (){
                         setState(() {
@@ -996,6 +1033,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: Icon(Icons.arrow_forward_ios_sharp)
                   ),
+
+
+
                     ],
                   ),
                 ],
