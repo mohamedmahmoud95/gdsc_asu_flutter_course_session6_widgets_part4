@@ -10,15 +10,19 @@ class FavoriteScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          title: const Text("Favorite screen"),
           leading: BackButton(
-            onPressed: (){
-              Navigator.of(context).pop();
-            },
+            onPressed: (){Navigator.of(context).pop();},
           ),
         ),
-        body: Center(child: Text("Favorite screen")),
+        body: const Center(
+          child: Icon(Icons.favorite, size: 100,),),
       ),
-
     );
   }
 }
+
+
+
+
+

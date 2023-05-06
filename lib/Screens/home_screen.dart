@@ -7,6 +7,42 @@ import 'package:gdsc_asu_flutter_course_widgets_part4/Screens/settings_screen.da
 import 'package:gdsc_asu_flutter_course_widgets_part4/Screens/shopping_cart_screen.dart';
 
 
+
+
+//-----------------------------------------------//
+/*
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp
+      (
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Home screen"),
+          ),
+          body: const Center(
+            child: Icon(Icons.home, size: 100,),
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+//-----------------------------------------------//
+
+
+
+
 //-----------------------------------------------//
 /*
 class HomeScreen extends StatefulWidget {
@@ -372,12 +408,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (BuildContext context) =>
                     Center(
                       child: ElevatedButton(
+                        child: const Text("dismiss"),
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        child: const Text("dismiss"),
                       )
-                ),
+                    ),
                 );
               },
             ),
@@ -425,7 +461,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 showModalBottomSheet(
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
-                        Radius.circular(20)),
+                        Radius.circular(50)),
                   ),
                   context: context,
                   builder: (BuildContext context) =>
@@ -503,9 +539,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               children: [
                                Image.asset("assets/dash.png"),
-                                // Image.asset("assets/dash1.png"),
-                                // Image.asset("assets/dash2.png"),
-                                // Image.asset("assets/dash3.png"),
                                 ElevatedButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
@@ -571,8 +604,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (BuildContext context) =>
                   SizedBox(
                     height: 500,
-                child:
-                    Center(
+                    child: Center(
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
@@ -588,7 +620,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               child: const Text("dismiss"),
                             ),
-
                             const SizedBox(height: 20,),
                           ],
                         ),
@@ -874,7 +905,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.green,
                       ),
                     ),
-
                   ],
                 ),
               )
