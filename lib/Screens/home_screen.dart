@@ -1,13 +1,8 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:gdsc_asu_flutter_course_widgets_part4/Reusable_widgets/drawer_widget.dart';
 import 'package:gdsc_asu_flutter_course_widgets_part4/Screens/profile_screen.dart';
 import 'package:gdsc_asu_flutter_course_widgets_part4/Screens/settings_screen.dart';
 import 'package:gdsc_asu_flutter_course_widgets_part4/Screens/shopping_cart_screen.dart';
-
-
-
 
 //-----------------------------------------------//
 /*
@@ -40,9 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
 */
 //-----------------------------------------------//
 
-
-
-
 //-----------------------------------------------//
 /*
 class HomeScreen extends StatefulWidget {
@@ -71,12 +63,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
-
-
-
 
 //-----------------------------------------------//
 //adding a userProfile widget into the drawer
@@ -153,13 +139,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
-
-
-
-
 
 //-----------------------------------------------//
 //Navigating between pages using drawer
@@ -318,16 +297,6 @@ class _HomeScreenState extends State<HomeScreen> {
 */
 //-----------------------------------------------//
 
-
-
-
-
-
-
-
-
-
-
 //-----------------------------------------------//
 //Now, let's move the drawer to a separate file
 //for code cleanliness
@@ -359,21 +328,9 @@ class _HomeScreenState extends State<HomeScreen> {
 */
 //-----------------------------------------------//
 
-
-
-
-
-
-
 //-----------------------------------------------////-----------------------------------------------//
 //-----------------------------------------//Bottom sheet//-----------------------------------------//
 //-----------------------------------------------////-----------------------------------------------//
-
-
-
-
-
-
 
 //-----------------------------------------------//
 //Bottom sheet widget
@@ -426,10 +383,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
-
 
 //-----------------------------------------------//
 //Bottom sheet widget with rounded borders
@@ -485,17 +438,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
-
-
-
-
-
-
-
-
 
 //-----------------------------------------------//
 //Bottom sheet widget with limited height
@@ -561,10 +503,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
-
 
 //-----------------------------------------------//
 //Bottom sheet widget with many children
@@ -639,22 +577,9 @@ class _HomeScreenState extends State<HomeScreen> {
 */
 //-----------------------------------------------//
 
-
-
-
-
-
-
-
-
 //-----------------------------------------------////-----------------------------------------------//
 //-----------------------------------------/Alert dialog//-----------------------------------------//
 //-----------------------------------------------////-----------------------------------------------//
-
-
-
-
-
 
 //-----------------------------------------------//
 //Alert Dialog widget
@@ -711,13 +636,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
-
-
-
-
 
 //-----------------------------------------------//
 //Now let's move the alert dialog into a separate widget
@@ -783,21 +701,9 @@ class ShowDialogButton extends StatelessWidget {
 */
 //-----------------------------------------------//
 
-
-
-
-
-
-
 //-----------------------------------------------////-----------------------------------------------//
 //-----------------------------------------//Stack widget//-----------------------------------------//
 //-----------------------------------------------////-----------------------------------------------//
-
-
-
-
-
-
 
 //-----------------------------------------------//
 //Stack widget
@@ -852,14 +758,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 */
 //-----------------------------------------------//
-
-
-
-
-
-
-
-
 
 //-----------------------------------------------//
 //Stack widget
@@ -917,30 +815,25 @@ class _HomeScreenState extends State<HomeScreen> {
 */
 //-----------------------------------------------//
 
-
-
-
-
-
-
-
-
-
-
-
 //Now, let's play a little
 //-----------------------------------------------//
 //Stack widget
 //Positioned
 //Moving containers by changing it's position
 
-
-class Car{
+class Car {
   double left;
   double top;
-  Car({required this.left, required this.top});
+  String imageUrl;
+  Car({required this.left, required this.top, required this.imageUrl});
 }
 
+
+Car car  = Car(left: 100, top: 100, imageUrl: 'assets/blue_car.png');
+Car car2 = Car(left: 200, top: 100, imageUrl: 'assets/blue_car.png');
+Car car3 = Car(left: 300, top: 100, imageUrl: 'assets/purple_car.png');
+
+List<Car> cars = [car,car2,car3];
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -950,40 +843,44 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Car car = Car(left: 100, top: 100);
+  int index = 0;
+  late List<Car> cars;
 
-  void moveCarRight()
-  {
+  Widget carWidget(Car car) =>
+      Positioned(
+        top: car.top,
+        left: car.left,
+        child: SizedBox(
+            height: 50, width: 50, child: Image.asset(car.imageUrl,)),
+      );
+
+  void moveCarRight() {
     setState(() {
-      car.left+=10;
+      car.left += 20;
     });
   }
 
-  void moveCarLeft()
-  {
+  void moveCarLeft() {
     setState(() {
-      car.left-=10;
+      car.left -= 20;
     });
   }
 
-  void moveCarUp()
-  {
+  void moveCarUp() {
     setState(() {
-      car.top-=10;
+      car.top -= 20;
     });
   }
 
-  void moveCarDown()
-  {
+  void moveCarDown() {
     setState(() {
-      car.top+=10;
+      car.top += 20;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp
-      (
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
@@ -991,94 +888,136 @@ class _HomeScreenState extends State<HomeScreen> {
             title: const Text("Home screen"),
           ),
           drawer: const DrawerWidget(),
+          body: Container(
+            height: 1000,
+            width: 900,
 
-          body:  Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+            child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 700,
+                      width: 700,
+                      child: Stack(
+                        children: <Widget>[
 
-                  Container(
-                    height: 500,
-                    width: 500,
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned(
-                          top: car.top,
-                          left: car.left,
-                          child: SizedBox(
-                            height: 200,
-                              width: 200,
-                              child: Image.asset("assets/blue_car.png")
+
+                          Positioned(
+                            top: car.top,
+                            left: car.left,
+                            child: SizedBox(
+                                height: 150,
+                                width: 150,
+                                child: Image.asset("assets/blue_car.png")),
                           ),
-                        ),
 
-                      ],
+
+                          // Positioned(
+                          //   top: car2.top,
+                          //   left: car2.left,
+                          //   child: SizedBox(
+                          //       height: 150,
+                          //       width: 150,
+                          //       child: Image.asset("assets/red_car.png")),
+                          // ),
+                          //
+                          //
+                          // Positioned(
+                          //   top: car3.top,
+                          //   left: car3.left,
+                          //   child: SizedBox(
+                          //       height: 150,
+                          //       width: 150,
+                          //       child: Image.asset("assets/red_car.png")),
+                          // ),
+
+                          Positioned(
+                            top: 570,
+                              left: 85,
+                              child: joyStick()),
+                        ],
+                      ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
 
-                    children: [
-                      ElevatedButton(
-                          onPressed: (){
-                            setState(() {
-                              moveCarLeft();
-                            });
-
-                            },
-                          child: Icon(Icons.arrow_back_ios_new)
-                      ),
-
-
-                  Column(
-                    children: [
-                      ElevatedButton(
-                          onPressed: (){
-                            setState(() {
-                              moveCarUp();
-                            });
-
-                          },
-                          child: Icon(Icons.keyboard_arrow_up)
-                      ),
-
-                      SizedBox(height: 20,),
-                      ElevatedButton(
-                          onPressed: (){
-                            setState(() {
-                              moveCarDown();
-                            });
-
-                          },
-                          child: Icon(Icons.keyboard_arrow_down)
-                      ),
-                    ],
-                  ),
-                  ElevatedButton(
-                      onPressed: (){
-                        setState(() {
-                         moveCarRight();
-                        });
-
-                      },
-                      child: Icon(Icons.arrow_forward_ios_sharp)
-                  ),
-
-
-
-                    ],
-                  ),
-                ],
-              )
+                  ],
+                )
+            ),
           ),
+          
+          floatingActionButton: addCarButton(index),
         ),
       ),
     );
   }
-}
+
 
 //-----------------------------------------------//
 
 
+  Widget joyStick() =>
+      Container(
+        height: 150,
+        width: 300,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    moveCarLeft();
+                  });
+                },
+                child: const Icon(Icons.arrow_back_ios_new)),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        moveCarUp();
+                      });
+                    },
+                    child: const Icon(Icons.keyboard_arrow_up)),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        moveCarDown();
+                      });
+                    },
+                    child: const Icon(Icons.keyboard_arrow_down)),
+              ],
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    moveCarRight();
+                  });
+                },
+                child: const Icon(Icons.arrow_forward_ios_sharp)),
+          ],
+        ),
+      );
 
 
+
+
+  Widget addCarButton (int index) => ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.black
+    ),
+      onPressed: (){
+    setState(() {
+     // carWidget(cars[index]);
+      if(index < 2) {
+        index++;
+      }
+    });
+
+  },
+      child: const Icon(Icons.add));
+}
